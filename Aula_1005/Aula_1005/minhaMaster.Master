@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="minhaMaster.master.cs" Inherits="Aula_1005.minhaMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div style="background-color:green;">
+        <asp:ContentPlaceHolder ID="cabecalho" runat="server">
+            
+        </asp:ContentPlaceHolder>
+            </div>
+        <div style="background-color:aqua;">
+        <asp:ContentPlaceHolder ID="conteudo" runat="server">
+        </asp:ContentPlaceHolder>
+            </div>
+         <div style="background-color:darkblue;">
+         <asp:ContentPlaceHolder ID="Rodape" runat="server">
+            
+        </asp:ContentPlaceHolder>
+            </div>
+    </div>
+    </form>
+</body>
+</html>
