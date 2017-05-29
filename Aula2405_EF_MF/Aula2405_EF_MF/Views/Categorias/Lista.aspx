@@ -15,6 +15,13 @@
     <br />
     <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"  />
     <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+<br />
+            <h1> Categoria Ativos</h1>
+     <asp:GridView ID="gvCategorias" runat="server"></asp:GridView>
+            <br />
+            <h1>Categoria Inativos</h1>
+    <asp:GridView ID="gvCategoriasExcluidas" runat="server"></asp:GridView>
+
            </ContentTemplate> 
     </asp:UpdatePanel>
 
