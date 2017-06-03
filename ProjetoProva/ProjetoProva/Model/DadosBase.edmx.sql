@@ -43,7 +43,7 @@ CREATE TABLE [dbo].[Consultas] (
     [Preco] decimal(18,0)  NOT NULL,
     [MedicoId] int  NOT NULL,
     [Ativo] bit  NOT NULL,
-    [DataConsulta] datetime  NOT NULL
+    [DataConsulta] nvarchar(8)  NOT NULL
 );
 GO
 
