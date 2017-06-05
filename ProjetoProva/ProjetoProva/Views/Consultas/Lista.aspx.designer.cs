@@ -76,6 +76,24 @@ namespace ProjetoProva.Views.Consultas {
         protected global::System.Web.UI.WebControls.TextBox txt_data;
         
         /// <summary>
+        /// lbl_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_ID;
+        
+        /// <summary>
+        /// ddlMedico control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMedico;
+        
+        /// <summary>
         /// btn_salvar control.
         /// </summary>
         /// <remarks>
@@ -85,13 +103,22 @@ namespace ProjetoProva.Views.Consultas {
         protected global::System.Web.UI.WebControls.Button btn_salvar;
         
         /// <summary>
-        /// btn_excluir control.
+        /// lbl_IdBuscar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_excluir;
+        protected global::System.Web.UI.WebControls.Label lbl_IdBuscar;
+        
+        /// <summary>
+        /// txt_IdBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_IdBuscar;
         
         /// <summary>
         /// btn_buscar control.
@@ -103,6 +130,60 @@ namespace ProjetoProva.Views.Consultas {
         protected global::System.Web.UI.WebControls.Button btn_buscar;
         
         /// <summary>
+        /// lbl_NomeBuscado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_NomeBuscado;
+        
+        /// <summary>
+        /// txt_NomeBuscado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_NomeBuscado;
+        
+        /// <summary>
+        /// lbl_precoBuscado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_precoBuscado;
+        
+        /// <summary>
+        /// txt_PrecoBuscado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_PrecoBuscado;
+        
+        /// <summary>
+        /// lbl_dataBuscado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_dataBuscado;
+        
+        /// <summary>
+        /// txt_DataBuscado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_DataBuscado;
+        
+        /// <summary>
         /// btn_editar control.
         /// </summary>
         /// <remarks>
@@ -110,6 +191,15 @@ namespace ProjetoProva.Views.Consultas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_editar;
+        
+        /// <summary>
+        /// btn_excluir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_excluir;
         
         /// <summary>
         /// gv_Consultas control.

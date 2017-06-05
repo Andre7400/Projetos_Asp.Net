@@ -19,8 +19,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Idade" Type="decimal" Nullable="false" />
-    <Property Name="Ativo" Type="bit" Nullable="false" />
+    <Property Name="Idade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ativo" Type="bit" Nullable="true" />
   </EntityType>
   <EntityType Name="Consultas">
     <Key>
@@ -31,7 +31,7 @@
     <Property Name="Preco" Type="decimal" Nullable="false" />
     <Property Name="MedicoId" Type="int" Nullable="false" />
     <Property Name="Ativo" Type="bit" Nullable="false" />
-    <Property Name="DataConsulta" Type="datetime" Nullable="false" />
+    <Property Name="DataConsulta" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="MedicoID">
     <End Role="Consulta" Type="DadosBase.Store.Consultas" Multiplicity="*" />
@@ -63,9 +63,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" Nullable="false" MaxLength="Max" />
-          <Property Name="Idade" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Idade" Type="String" Nullable="false" />
           <NavigationProperty Name="Consulta" Relationship="DadosBase.MedicoID" FromRole="Medico" ToRole="Consulta" />
-          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="true" />
         </EntityType>
         <EntityType Name="Consulta">
           <Key>
@@ -77,7 +77,7 @@
           <NavigationProperty Name="Medico" Relationship="DadosBase.MedicoID" FromRole="Consulta" ToRole="Medico" />
           <Property Name="MedicoId" Type="Int32" Nullable="false" />
           <Property Name="Ativo" Type="Boolean" Nullable="false" />
-          <Property Name="DataConsulta" Type="String" Nullable="true" />
+          <Property Name="DataConsulta" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="MedicoID">
           <End Type="DadosBase.Consulta" Role="Consulta" Multiplicity="*" />

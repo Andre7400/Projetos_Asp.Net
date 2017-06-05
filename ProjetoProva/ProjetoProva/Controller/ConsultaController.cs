@@ -8,7 +8,7 @@ namespace ProjetoProva.Controller
 {
     public class ConsultaController
     {
-        protected DadosBaseContainer contexto = new DadosBaseContainer();
+        protected static DadosBaseContainer contexto = new DadosBaseContainer();
         public void Adicionar(Consulta consulta)
         {
             if (consulta != null)
@@ -41,5 +41,7 @@ namespace ProjetoProva.Controller
             contexto.Entry(consulta).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
         }
+
+      
     }
 }

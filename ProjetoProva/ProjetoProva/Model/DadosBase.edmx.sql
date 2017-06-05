@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/31/2017 10:23:25
+-- Date Created: 06/05/2017 08:31:41
 -- Generated from EDMX file: C:\Users\1600535\Source\Repos\Projetos_Asp.Net\ProjetoProva\ProjetoProva\Model\DadosBase.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,20 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_MedicoID]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Consultas] DROP CONSTRAINT [FK_MedicoID];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Medicos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Medicos];
+GO
+IF OBJECT_ID(N'[dbo].[Consultas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Consultas];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -31,8 +40,8 @@ GO
 CREATE TABLE [dbo].[Medicos] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Nome] nvarchar(max)  NOT NULL,
-    [Idade] decimal(18,0)  NOT NULL,
-    [Ativo] bit  NOT NULL
+    [Idade] nvarchar(max)  NOT NULL,
+    [Ativo] bit  NULL
 );
 GO
 
@@ -43,7 +52,7 @@ CREATE TABLE [dbo].[Consultas] (
     [Preco] decimal(18,0)  NOT NULL,
     [MedicoId] int  NOT NULL,
     [Ativo] bit  NOT NULL,
-    [DataConsulta] datetime  NOT NULL
+    [DataConsulta] nvarchar(max)  NOT NULL
 );
 GO
 
