@@ -3,7 +3,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
     <br />
-    <h1>Consultas</h1>
+    <h1>Cadastrar Consultas</h1>
     <br />
     <asp:Label ID="lbl_Nome" runat="server" Text="Nome:"></asp:Label>
     <br />
@@ -30,6 +30,7 @@
     <br />
     <br />
     <br />
+    <h1>Buscar Editar e Excluir Consulta</h1>
     <asp:Label ID="lbl_IdBuscar" runat="server" Text="ID:"></asp:Label>
     <asp:TextBox ID="txt_IdBuscar" runat="server"></asp:TextBox>
     <br />
@@ -50,7 +51,7 @@
     <asp:TextBox ID="txt_DataBuscado" runat="server"></asp:TextBox>
     <br />
     <br />
-    <asp:Button ID="btn_editar" runat="server" Text="Editar" />
+    <asp:Button ID="btn_editar" runat="server" Text="Editar" OnClick="btn_editar_Click" />
     <asp:Button ID="btn_excluir" runat="server" Text="Excluir" OnClick="btn_excluir_Click" />
 
 
@@ -58,9 +59,21 @@
             <br />
             <h1>Consultas Ativas</h1>
             <asp:GridView ID="gv_Consultas" runat="server"></asp:GridView>
+            
             <br />
-            <h1>Consultas Realizadas</h1>
+            <h1>Consultas Inativas</h1>
             <asp:GridView ID="gv_ConsultasInativas" runat="server"></asp:GridView>
+            <br />
+            <br />
+            <br />
+            <h1>Medicos Ativos</h1>
+            <asp:GridView ID="gv_Medicos" runat="server"></asp:GridView>
+            <br />
+            <h1>Medicos Inativos</h1>
+            <asp:GridView ID="gv_MedicosInativos" runat="server"></asp:GridView>
+            <br />
+
+
 
              </ContentTemplate>
         </asp:UpdatePanel>

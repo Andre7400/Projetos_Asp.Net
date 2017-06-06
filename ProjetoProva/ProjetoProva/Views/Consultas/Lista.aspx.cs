@@ -14,13 +14,22 @@ namespace ProjetoProva.Views.Consultas
         protected void Page_Load(object sender, EventArgs e)
         {
             ConsultaController ctrl = new ConsultaController();
+            MedicoController list = new MedicoController();
             List<Consulta> lista = ctrl.Listar();
+            List<Medico> ListaMed = list.Listar();
 
             gv_Consultas.DataSource = lista.OrderBy(c => c.Nome);
             gv_Consultas.DataBind();
 
             gv_ConsultasInativas.DataSource = ctrl.ListarInativos();
             gv_ConsultasInativas.DataBind();
+
+            gv_Medicos.DataSource = ListaMed.OrderBy(m => m.Nome);
+            gv_Medicos.DataBind();
+
+            gv_MedicosInativos.DataSource = list.ListarInativos();
+            gv_MedicosInativos.DataBind();
+
             if(!IsPostBack)
             {
                 MedicoController mc = new  MedicoController();
@@ -51,22 +60,42 @@ namespace ProjetoProva.Views.Consultas
   
             if (con !=null )
             {
-
+                try { 
                 txt_NomeBuscado.Text = con.Nome;
                 txt_PrecoBuscado.Text = con.Preco.ToString();
                 txt_DataBuscado.Text = con.DataConsulta;
-                ddlMedico.SelectedValue = con.Id.ToString();
+
+                }
+                catch
+                {
+                    ddlMedico.SelectedValue = con.Id.ToString();
+                }
+               
+                
             }
         }
 
         protected void btn_excluir_Click(object sender, EventArgs e)
         {
-            Consulta con = new Consulta();
+            int idConsulta = int.Parse(txt_IdBuscar.Text);
             ConsultaController cc = new ConsultaController();
-            txt_NomeBuscado.Text = con.Nome;
-            txt_PrecoBuscado.Text = con.Preco.ToString();
-            txt_DataBuscado.Text = con.DataConsulta;
+            Consulta con = cc.BuscarConsultaPorID(idConsulta);
+            con.Ativo = false;
             cc.Excluir(con);
+ 
+        }
+
+        protected void btn_editar_Click(object sender, EventArgs e)
+        {
+            int idConsulta = int.Parse(txt_IdBuscar.Text);
+            ConsultaController cc = new ConsultaController();
+            Consulta con = cc.BuscarConsultaPorID(idConsulta);
+            con.Nome = txt_NomeBuscado.Text;
+            con.Preco = decimal.Parse(txt_PrecoBuscado.Text);
+            con.DataConsulta = txt_DataBuscado.Text;
+            con.MedicoId = int.Parse(ddlMedico.SelectedValue);
+            con.Ativo = true;
+            cc.Editar(con);
         }
     }
 }
