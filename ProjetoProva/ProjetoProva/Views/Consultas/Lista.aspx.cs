@@ -13,6 +13,18 @@ namespace ProjetoProva.Views.Consultas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CarregarGrids();
+
+            if (!IsPostBack)
+            {
+                MedicoController mc = new MedicoController();
+                ddlMedico.DataSource = mc.Listar();
+                ddlMedico.DataBind();
+            }
+        }
+
+        private void CarregarGrids()
+        {
             ConsultaController ctrl = new ConsultaController();
             MedicoController list = new MedicoController();
             List<Consulta> lista = ctrl.Listar();
@@ -29,27 +41,23 @@ namespace ProjetoProva.Views.Consultas
 
             gv_MedicosInativos.DataSource = list.ListarInativos();
             gv_MedicosInativos.DataBind();
-
-            if(!IsPostBack)
-            {
-                MedicoController mc = new  MedicoController();
-                ddlMedico.DataSource = mc.Listar();
-                ddlMedico.DataBind();
-            }
         }
 
         protected void btn_salvar_Click(object sender, EventArgs e)
         {
-            Consulta con = new Consulta();
-            con.Nome = txt_nome.Text;
-            con.Preco = decimal.Parse(txt_preco.Text);
-            con.DataConsulta = txt_data.Text;
-            con.MedicoId = int.Parse(ddlMedico.SelectedValue);
-            con.Ativo = true;
+            if (!string.IsNullOrEmpty(txt_nome.Text))
+            {
+                Consulta con = new Consulta();
+                con.Nome = txt_nome.Text;
+                con.Preco = decimal.Parse(txt_preco.Text);
+                con.DataConsulta = txt_data.Text;
+                con.MedicoId = int.Parse(ddlMedico.SelectedValue);
+                con.Ativo = true;
+                ConsultaController contexto = new ConsultaController();
+                contexto.Adicionar(con);
+                CarregarGrids();
+            }
 
-           ConsultaController  contexto = new ConsultaController();
-            contexto.Adicionar(con);
-  
         }
 
         protected void btn_buscar_Click(object sender, EventArgs e)
@@ -57,21 +65,19 @@ namespace ProjetoProva.Views.Consultas
             int idConsulta = int.Parse(txt_IdBuscar.Text);
             ConsultaController cc = new ConsultaController();
             Consulta con = cc.BuscarConsultaPorID(idConsulta);
-  
-            if (con !=null )
-            {
-                try { 
-                txt_NomeBuscado.Text = con.Nome;
-                txt_PrecoBuscado.Text = con.Preco.ToString();
-                txt_DataBuscado.Text = con.DataConsulta;
 
+            if (con != null)
+            {
+                try
+                {
+                    txt_NomeBuscado.Text = con.Nome;
+                    txt_PrecoBuscado.Text = con.Preco.ToString();
+                    txt_DataBuscado.Text = con.DataConsulta;
                 }
                 catch
                 {
                     ddlMedico.SelectedValue = con.Id.ToString();
                 }
-               
-                
             }
         }
 
@@ -82,7 +88,8 @@ namespace ProjetoProva.Views.Consultas
             Consulta con = cc.BuscarConsultaPorID(idConsulta);
             con.Ativo = false;
             cc.Excluir(con);
- 
+            CarregarGrids();
+
         }
 
         protected void btn_editar_Click(object sender, EventArgs e)
@@ -96,6 +103,7 @@ namespace ProjetoProva.Views.Consultas
             con.MedicoId = int.Parse(ddlMedico.SelectedValue);
             con.Ativo = true;
             cc.Editar(con);
+            CarregarGrids();
         }
     }
 }
