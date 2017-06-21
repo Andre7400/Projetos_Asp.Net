@@ -1,4 +1,4 @@
-﻿@model BaseModels.Categoria
+﻿@model BaseModels.Produto
 
 @{
     ViewBag.Title = "Details";
@@ -7,9 +7,17 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Categoria</h4>
+    <h4>Produto</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model._Categoria.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Categoria.Nome)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
@@ -27,6 +35,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Ativo)
         </dt>
 
@@ -37,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoriaID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProdutoID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

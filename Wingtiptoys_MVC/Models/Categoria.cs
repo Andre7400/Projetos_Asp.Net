@@ -6,10 +6,15 @@ namespace BaseModels
     {
         [Key]
         public int CategoriaID { get; set; }
-        [Required(ErrorMessage ="*"), StringLength(10,ErrorMessage ="Tamanho máximo de 10 cacteres")]
-        public string Descricao { get; set; }
-        [Display(Name ="Descricao"), DataType(DataType.MultilineText)]
+
+        [Required(ErrorMessage ="*")]
+        [StringLength(10,ErrorMessage ="Tamanho máximo é 10 caracteres")]
         public string Nome { get; set; }
+
+        [Display(Name ="Descrição")]
+        [DataType(DataType.MultilineText)]
+        public string Descricao { get; set; }
+
         [Required]
         public bool Ativo { get; set; }
     }

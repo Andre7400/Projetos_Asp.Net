@@ -20,13 +20,11 @@ namespace BaseModels
         public decimal Preco { get; set; }
 
         [Required]
-       
         public bool Ativo { get; set; }
 
         public int CategoriaID { get; set; }
 
         [Display(Name ="Categoria")]
         public virtual Categoria _Categoria { get; set; }
-
     }
 }
